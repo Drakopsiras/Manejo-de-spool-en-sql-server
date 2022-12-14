@@ -1,0 +1,32 @@
+USE [INDICADORES]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<H,S>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[SP_CARGA_SPOOL_16_SGA_LD]	
+AS
+BEGIN
+	
+	DECLARE @cmd VARCHAR(500)
+	SET @cmd = 'SQLPLUS ESQUEMA/USUARIO@IP:PUERTO/CONTRASEÑA @G:\DOCUMENTOS_TRANSITORIOS\SPOOL\spool\spool_16_SGA_LD.txt';
+	exec master..xp_cmdshell @cmd;	
+
+	DELETE  FROM INDICADORES.DBO.[16_SGA_LD]
+	WHERE LEFT(FECHA, 6) = FORMAT(GETDATE()-1,'yyyyMM')
+
+	/****** Script for SelectTopNRows command from SSMS  ******/
+
+	EXEC BASE_DATOS.dbo.BULK_DATA 
+    @location_file = 'G:/DOCUMENTOS_TRANSITORIOS/SPOOL/data/',    
+    @name_file = '16_SGA_LD.txt',
+    @schemma_table_insert = 'INDICADORES.DBO.[16_SGA_LD]' ,
+    @restriccion_documents = 'FIRSTROW = 1, FIELDTERMINATOR=''|'', ROWTERMINATOR=''0x0a'' '	
+	
+END
