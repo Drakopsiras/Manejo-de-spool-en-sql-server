@@ -1,0 +1,481 @@
+set termout off  
+set pagesize 0 
+set heading off  
+SET linesize 32767 
+SET colsep | 
+SET newpage none 
+SET feedback off 
+SET recsep off 
+SET sqlprompt 
+SET TRIMSPOOL ON 
+SET TRIM ON 
+SET echo off 
+set verify off-_ 
+
+spool 'G:\DOCUMENTOS_TRANSITORIOS\SPOOL\data\16_SGA_LD.txt';
+
+SELECT   '16',
+    'SGA-LD',
+    '20220301',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220301'||'000000','yyyymmddhh24miss') and
+      to_date('20220301'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220302',
+ to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220302'||'000000','yyyymmddhh24miss') and
+      to_date('20220302'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220303',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220303'||'000000','yyyymmddhh24miss') and
+      to_date('20220303'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220304',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220304'||'000000','yyyymmddhh24miss') and
+      to_date('20220304'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220305',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220305'||'000000','yyyymmddhh24miss') and
+      to_date('20220305'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220306',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220306'||'000000','yyyymmddhh24miss') and
+      to_date('20220306'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220307',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220307'||'000000','yyyymmddhh24miss') and
+      to_date('20220307'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220308',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220308'||'000000','yyyymmddhh24miss') and
+      to_date('20220308'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220309',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220309'||'000000','yyyymmddhh24miss') and
+      to_date('20220309'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220310',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220310'||'000000','yyyymmddhh24miss') and
+      to_date('20220310'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220311',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220311'||'000000','yyyymmddhh24miss') and
+      to_date('20220311'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220312',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220312'||'000000','yyyymmddhh24miss') and
+      to_date('20220312'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220313',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220313'||'000000','yyyymmddhh24miss') and
+      to_date('20220313'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220314',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220314'||'000000','yyyymmddhh24miss') and
+      to_date('20220314'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220315',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220315'||'000000','yyyymmddhh24miss') and
+      to_date('20220315'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220316',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220316'||'000000','yyyymmddhh24miss') and
+      to_date('20220316'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220317',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220317'||'000000','yyyymmddhh24miss') and
+      to_date('20220317'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220318',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220318'||'000000','yyyymmddhh24miss') and
+      to_date('20220318'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220319',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220319'||'000000','yyyymmddhh24miss') and
+      to_date('20220319'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220320',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220320'||'000000','yyyymmddhh24miss') and
+      to_date('20220320'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220321',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220321'||'000000','yyyymmddhh24miss') and
+      to_date('20220321'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220322',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220322'||'000000','yyyymmddhh24miss') and
+      to_date('20220322'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220323',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220323'||'000000','yyyymmddhh24miss') and
+      to_date('20220323'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220324',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220324'||'000000','yyyymmddhh24miss') and
+      to_date('20220324'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220325',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220325'||'000000','yyyymmddhh24miss') and
+      to_date('20220325'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220326',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220326'||'000000','yyyymmddhh24miss') and
+      to_date('20220326'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220327',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220327'||'000000','yyyymmddhh24miss') and
+      to_date('20220327'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220328',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220328'||'000000','yyyymmddhh24miss') and
+      to_date('20220328'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220329',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220329'||'000000','yyyymmddhh24miss') and
+      to_date('20220329'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in  ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220330',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220330'||'000000','yyyymmddhh24miss') and
+      to_date('20220330'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1)
+UNION ALL
+SELECT   '16',
+    'SGA-LD',
+    '20220331',
+    to_char(COUNT(*))
+FROM agt_trafico_unico_hst@TRAF a
+   where a.ltr_codigo in (select b.ltr_codigo from agt_archivo_trafico@TRAF b where b.ltr_codigo in
+  (select ltr.ltr_codigo from ordenes_de_procesamiento@TRAF oproc, opfltr@TRAF ltr
+  where oproc.oproc_tipo_oproc = 'A' and
+      oproc.OPROC_FECHA_TERM_EJECUCION between to_date('20220331'||'000000','yyyymmddhh24miss') and
+      to_date('20220331'||'235959','yyyymmddhh24miss') and
+      oproc.oproc_codigo = ltr.oproc_codigo))
+and ( (agttru_fac_seleccion in ( select dvl_codigo from glo_dom_val@TRAF where dom_codigo = 461))
+or  (agttru_codigo_producto in ( select prpr_prod_id from cli_producto_propiedad@TRAF where PRPR_FACCTL_ENCICLADO in ('M','D')
+and prpr_fecha_termino > sysdate )) or agttru_codigo_producto = '-1' ) and agttru_fac_seleccion not in (800,1);
+spool off;
